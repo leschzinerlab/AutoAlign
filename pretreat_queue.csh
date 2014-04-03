@@ -18,7 +18,7 @@ echo "! "
 echo "! "
 echo "! IMAGIC program: alimass ----------------------------------------------"
 echo "! "
-/programs/local/i386-mac/imagic/081126S/align/alimass.e_mpi <<EOF
+/programs/local/i386-mac/imagic/081126S/align/alimass.e <<EOF
 NO
 $input
 ${input}_center
