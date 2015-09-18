@@ -89,6 +89,10 @@ def checkConflicts(params):
 	print "\nError: Cannot find 'CAN_linux.exe' in current directory or /usr/bin/. Exiting'\n"
 	sys.exit()
 
+	if not params['maskradius']:
+		print '\nError: No mask radius specified. Exiting.\n'
+		sys.exit()
+
 #==============================
 def getimagicPath():
         imagicpath = subprocess.Popen("env | grep IMAGIC_ROOT", shell=True, stdout=subprocess.PIPE).stdout.read().strip()
