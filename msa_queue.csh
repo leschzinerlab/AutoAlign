@@ -32,4 +32,5 @@ $eigenpix
 $msa
 EOF
 
+touch test
 touch MSA_is_done
