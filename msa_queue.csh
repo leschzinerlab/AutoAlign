@@ -3,7 +3,7 @@
 #$ -S /bin/tcsh
 #$ -cwd
 #$ -V
-#$ -pe ompi 5
+#$ -pe ompi 30
 
 set input=$1
 set mask=$2

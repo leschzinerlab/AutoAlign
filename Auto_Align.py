@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.4
+#!/usr/bin/env python
 
 import tarfile
 import random
@@ -174,7 +174,7 @@ def runAutoAlign(params,imagicPath,canPath):
 				print 'Finished CAN - aligning references\n'
 	
 			#Use eman2 to align references (taken from appion topologyAlignment.py):
- 			emancmd = "e2stacksort.py %s/auto_iteration_%1d/classsums%1d.img %s/auto_iteration_%1d/classsums%1d_prep.hdf --simalign=rotate_translate --center --useali --iterative" %(params['folder'],counter,counter,params['folder'],counter,counter)
+ 			emancmd = "e2stacksort.py %s/auto_iteration_%1d/classsums%1d.img %s/auto_iteration_%1d/classsums%1d_prep.img --simalign=rotate_translate --center --useali --iterative" %(params['folder'],counter,counter,params['folder'],counter,counter)
 			if params['debug'] is True:
 				print emancmd 
 			subprocess.Popen(emancmd,shell=True).wait()
@@ -190,10 +190,10 @@ def runAutoAlign(params,imagicPath,canPath):
 			#shutil.move('%s/auto_iteration_%1d/aclasssums%1d.hed'%(params['folder'],counter,counter),'%s/auto_iteration_%1d/classsums%1d_prep.hed'%(params['folder'],counter,counter))			
 
 			#Convert .hdf outputs into .img
-			cmd = 'e2proc2d.py %s/auto_iteration_%1d/classsums%1d_prep.hdf %s/auto_iteration_%1d/classsums%1d_prep.img' %(params['folder'],counter,counter,params['folder'],counter,counter)
-			if params['debug'] is True:
-				print cmd
-			subprocess.Popen(cmd,shell=True).wait()
+			#cmd = 'e2proc2d.py %s/auto_iteration_%1d/classsums%1d_prep.hdf %s/auto_iteration_%1d/classsums%1d_prep.img' %(params['folder'],counter,counter,params['folder'],counter,counter)
+			#if params['debug'] is True:
+			#	print cmd
+			#subprocess.Popen(cmd,shell=True).wait()
 
 			#Normalize class averages
 			cmd = 'proc2d %s/auto_iteration_%1d/classsums%1d_prep.img %s/auto_iteration_%1d/classsums%1d_prep_norm.img norm=0,1' %(params['folder'],counter,counter,params['folder'],counter,counter)
